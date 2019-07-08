@@ -1,0 +1,8 @@
+{
+	"clientId": "",
+	"tenantId": "",
+	"clientSecret": "",
+	"subscriptionId": "",
+	"zone": "bar.com",
+	"host":  "foo"
+}
