@@ -13,4 +13,6 @@ This example assumes that it will be deployed on a secured server and therefore 
 - Assign the DNS Zone Contributor role to the Service Principal that belongs to the application registration just created in the Subscription blade.
 - Fill in the appsettings.json file
 
+In order to make token acquisition transparent, I pulled in the Microsoft.Graph.Core library and used the GraphClientFactory to create an instance of HttpClient with an authentication provider wired up.  Ideally, I would have used the ClientCredentialProvider in Microsoft.Graph.Auth but sadly that class doesn't currently allow changing the default scope, which for ARM need to be https://management.azure.com/.default  
 
+As an interim workaround, I created a custom IAuthenticationProvider called ArmAuthenticationProvider.  This doesn't do all the error handling the ClientCredentialProvider does, so I will update as soon as I can.
